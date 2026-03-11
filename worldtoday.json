@@ -1,0 +1,48 @@
+[
+  {
+    "message": "Yahoo",
+    "url":  "https://sg.yahoo.com/"
+  },
+  {
+    "message": "Google",
+    "url": "https://news.google.com/home?hl=en-SG&gl=SG&ceid=SG:en"
+  },
+  {
+    "message": "MSN",
+    "url": "https://www.msn.com"
+  }
+  ,
+  {
+    "message": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Wikipedia:On_this_day/Today"
+  }
+    ,
+  {
+    "message": "Gold",
+    "url": "https://goldprice.today/?utm_source=chatgpt.com"
+  }
+    ,
+  {
+    "message": "Silver",
+    "url": "https://xag.today/?utm_source=chatgpt.com"
+  }
+    ,
+  {
+    "message": "SGD rate",
+    "url": "https://www.indexmundi.com/xrates/table.aspx?c1=SGD&utm_source=chatgpt.com"
+  }
+  ,
+  {
+    "message": "Bitcoin",
+    "url": "https://coinmarketcap.com/currencies/bitcoin/"
+  }
+    ,
+  {
+    "message": "Ethereum",
+    "url": "https://coinmarketcap.com/currencies/ethereum/"
+  }
+   
+]
+
+
+      
