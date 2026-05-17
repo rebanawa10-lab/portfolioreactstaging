@@ -1,4 +1,5 @@
-// file: tickerverticalsmoothpause.tsx
+// file:    src/components/mnunReview/tickerverticalsmoothpause.tsx
+
 
 // import React from "react";
 import React, { useEffect, useState, useRef } from "react";

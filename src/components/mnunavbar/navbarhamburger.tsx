@@ -20,16 +20,19 @@ const ToggleButton = styled.button`
 
   color: blue;
 
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 
-  &:hover {
-   transform: scale(1.2);
-  }
+  
 
   &:focus {
     outline: none;
   }
 `;
+
+// &:hover {
+//    transform: scale(1.2);
+//   }
+
 
 // onHover, since enlarge 
 const Hamburger: React.FC<HamburgerProps> = ({ isOpen, toggleMenu }) => {

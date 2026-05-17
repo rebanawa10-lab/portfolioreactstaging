@@ -4,6 +4,8 @@ import type { Todo } from "../types/todov2Type"
 import { useState } from "react"
 import CustomConfirm from "./customYN"; 
 
+import { log } from "../config/debug";
+
 interface Props {
   todos: Todo[]
   onDelete: (id: number) => void
@@ -68,7 +70,7 @@ export default function TodoList({ todos, onDelete, onUpdate }: Props) {
 
   const saveEdit = () => {
     if (editId !== null) {
-      console.log("Saving edit", editId, editText);
+      log("Saving edit", editId, editText);
       onUpdate(editId, editText)
       setEditId(null)
     }

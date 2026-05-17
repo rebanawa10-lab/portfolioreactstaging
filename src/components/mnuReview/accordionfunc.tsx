@@ -1,4 +1,5 @@
-// file: accordionfunc.tsx
+// file:    src/components/mnunReview/accordionfunc.tsx
+
 
 import React, { useState } from "react";
 import {

@@ -26,6 +26,8 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 
 import { getSalesman } from "../../api/salesPrintListAPI";
 
+import TooltipWrapper from "../../components/customTooltipWrapper"; //  "../components/customTooltipWrapper";    
+
 export type User = {
     userid: number;
     username: string;
@@ -227,7 +229,25 @@ function CustomPagination() {
   return (
     <div>
         <div>
-            <h2>Executive Sales</h2>          
+            <h2>Print Data List</h2>    
+
+            <TooltipWrapper
+                title={
+                <>                  
+                    - This module print/export the data to PDF.<br />                   
+                    - Click the Row header to sort or filter the data.<br />             
+                </>
+                }
+                maxWidth={500}
+            >
+                <span className="my-cell">
+                &nbsp;&nbsp;&nbsp;*&nbsp;&nbsp; Overview
+                </span>
+            </TooltipWrapper>
+
+            <br></br><br></br>  
+
+             
             <PrintData rows={filteredRows} />       
         </div>
 

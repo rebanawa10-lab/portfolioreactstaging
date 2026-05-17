@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import "./forexticker";
 
+import { log } from "../../../config/debug";
+
 type Rates = {
   [key: string]: number;
 };
@@ -24,7 +26,8 @@ const ForexTicker: React.FC = () => {
                 );
                 // Data:        ALL content 
                 // Provider:    https://www.exchangerate-api.com
-                // Debug:       console.log(response.data); //  check what API returns
+                // Debug:       log(response.data); //  check what API returns
+                log("Axios Response loaded")
                      
 
                 if (response.data && response.data.rates) {

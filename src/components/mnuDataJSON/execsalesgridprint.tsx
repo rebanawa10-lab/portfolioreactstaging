@@ -10,6 +10,12 @@ import { renderToString } from "react-dom/server";
 import PrintTable from "./execsalesgridtable";
 import type { User } from "./execsalesgrid";
 
+
+import PrintIcon from "@mui/icons-material/Print";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+
+
 type Props = {
   rows: User[];
 };
@@ -50,7 +56,29 @@ export default function ExecSalesPrintTrigger({ rows }: Props) {
 
   return (
     <div>
-      <button
+      <Tooltip title="Print">
+        <span>
+          <IconButton
+            onClick={handlePrint}
+            disabled={rows.length === 0}
+            sx={{
+              color: "#fff",
+              backgroundColor: "#1976d2",
+              borderRadius: "4px",
+              height: "30px",
+              width: "30px",
+              "&:hover": {
+                backgroundColor: "#1565c0",
+              },
+            }}
+          >
+            <PrintIcon />
+          </IconButton>
+        </span>
+      </Tooltip>
+      <br></br><br></br>
+
+      {/* <button
         onClick={handlePrint}
         disabled={rows.length === 0}
         style={{ marginBottom: "10px", padding: "6px 12px", 
@@ -71,7 +99,7 @@ export default function ExecSalesPrintTrigger({ rows }: Props) {
          }}
       >
         Print
-      </button>
+      </button> */}
  
     </div>
   );

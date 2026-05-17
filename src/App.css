@@ -1,14 +1,23 @@
+/* file:    src/App.css */
+
+
 #root {
   height: 83vh;
-  width: 1400px;
-  margin: 0 auto;
-  padding: 1px 10px 20px 1px;
+  width: 100%;
+  margin: 0;
+  padding: 1px 10px 20px 35px;
   text-align: left;
   
 }
+/*
+top    right  bottom left
+1px    10px   20px   1px
+
+*/
+
 /* Hometest use background-color */
 /* background-color: white */
-/* DEBUG: 
+/* DEBUG MODE: 
 border-style: dotted;
 
 */
@@ -74,7 +83,7 @@ border-style: dotted;
 
 /* Add Scrollable Main Content CSS */
 .main-content {
-  margin-top: 10px;          /* same as navbar height */ 
+  margin-top: 10px;   /* same as navbar height */ 
   padding: 1px 10px 20px 3px;
   height: calc(90vh - 10px);
   overflow-y: auto;
@@ -93,8 +102,12 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  
 }
-
+/*
+DEBUG MODE: to remove
+background-color: rgb(191, 248, 198)
+*/
 
 /* Material UI’s, Typography applies internal styles that override plain CSS. use the !important flag */
 .accordion-title {

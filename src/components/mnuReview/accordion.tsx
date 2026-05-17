@@ -1,6 +1,7 @@
-// file:    accordion.tsx
+// file:    src/components/mnunReview/accordion.tsx
 
-import Accordion from "./accordionfunc" ;
+
+import Accordion from "./accordionfunc"; 
 
 function App() {
   return (

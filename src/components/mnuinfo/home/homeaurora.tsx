@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 
 import { BASE_PATH } from "../../../config" ;
 
+
+
 const Home: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [showMessage, setShowMessage] = useState(false);
 
-  // console.log("homeaurora.tsx BASE_PATH:", BASE_PATH);
+  // log("homeaurora.tsx BASE_PATH:", BASE_PATH);
 
   useEffect(() => {
     if (videoRef.current) {

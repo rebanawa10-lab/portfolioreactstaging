@@ -5,9 +5,11 @@ import axios from "axios";
 import type { RatesResponse } from "../../../utils/types" ;
 
 
+
+
 const API_KEY = import.meta.env.VITE_EXCHANGE_API_KEY;
 
-// console.log("API KEY:", API_KEY);
+// log("API KEY:", API_KEY);
 
 function XRate() {
   const [rates, setRates] = useState<RatesResponse | null>(null);

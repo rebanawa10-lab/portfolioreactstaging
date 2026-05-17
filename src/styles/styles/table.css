@@ -1,4 +1,4 @@
-/* file:   src/styles/table.css */
+/* file:   src/styles/styles/table.css */
 
 /* Page container */
 .page-container {
@@ -31,6 +31,22 @@
    font-family: Arial; 
 }
 
+
+.my-buttonExt {
+  height: 25px;                 /* button height */
+  font-size: 12px;              /* button font size */
+  font-family: Arial;           /* button font family */
+  padding: 0 12px;              /* horizontal padding */
+  cursor: pointer;              /* pointer on hover */
+  border: 1px solid #ccc;     /* optional border */
+  border-radius: 4px;           /* optional rounded corners */
+  background-color: #f0f0f0;  /* optional background */
+  transition: background-color 0.2s; /* smooth hover effect */
+  width: 150px;
+  justify-content: center;
+}
+
+
 .my-button {
   height: 25px;                 /* button height */
   font-size: 12px;              /* button font size */
@@ -42,6 +58,7 @@
   background-color: #f0f0f0;  /* optional background */
   transition: background-color 0.2s; /* smooth hover effect */
   width: 90px;
+  justify-content: center;
 }
 
 .my-button:hover {
@@ -272,6 +289,11 @@
   font-size: 10px;
 }
 
+.errMsg {
+  color: red;
+  font-family: "Arial";
+  font-size: 12px;
+}
 
 
 /* ===== Grid Table Format ===== */
@@ -318,3 +340,82 @@
 .gridTblFrmt button:hover {
   background-color: #ddd;
 }
+
+/* Users Table Grid  Start */
+
+.usersGrid {
+  display: grid;
+  gap: 2px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.usersGrid .gridHeader,
+.usersGrid .gridRow {
+  display: grid;
+  grid-template-columns: 60px 60px 200px 250px 150px 300px; /* ID, Name, Email, Admin, Actions */
+  align-items: center;
+  padding: 6px 12px;
+}
+
+.usersGrid .gridHeader {
+  background-color: #f3f4f6;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.usersGrid .gridRow {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.usersGrid .gridRow:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.usersGrid button {
+  margin-right: 5px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.usersGrid button:hover {
+  background-color: #ddd;
+}
+
+
+/* Users Table Grid  End */
+
+/* Form Error Start */
+.toast-error {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff4d4f;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 9999;
+}
+
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* keep error inline next to button */
+.inline-error {
+  color: red;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+/* Form Error End */

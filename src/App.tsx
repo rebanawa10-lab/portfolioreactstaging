@@ -1,178 +1,140 @@
+// file:    src/App.tsx
+//          REDUX 
 
-// Ver1
-// import { useState, version } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-  // const [count, setCount] = useState(0)
-  // return (
-    // <>
-    //   <div>
-    //     <a href="https://vite.dev" target="_blank">
-    //       <img src={viteLogo} className="logo" alt="Vite logo" />
-    //     </a>
-    //     <a href="https://react.dev" target="_blank">
-    //       <img src={reactLogo} className="logo react" alt="React logo" />
-    //     </a>
-    //   </div>
-    //   <h1>Vite + React</h1><small>xx-- {version} --xx</small>
-    //   <div className="card">
-    //     <button onClick={() => setCount((count) => count + 1)}>
-    //       count is {count}
-    //     </button>
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to test HMR
-    //     </p>
-    //   </div>
-    //   <p className="read-the-docs">
-    //     Click on the Vite and React logos to learn more
-    //   </p>
-    // </>
-  // )
-// }
-
-
-// file:  src/app.tsx
-
-import './App.css';
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { BASE_PATH } from "../src/config" ;
+import { useDispatch } from "react-redux";
+import { setUser } from "./store/userSlice";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "../src/components/login" ; 
+import Menu from "./pages/menu"  ;
+
+import MnuInfoHome from "./components/mnuinfo/home/homeaurora";
+
+import { Navigate } from "react-router-dom";
+
+import { useEffect } from "react";
+
+import { log } from "./config/debug";
 
 
-// Single Page Application (SPA) method. MainMenu
-import MnuNavBar from './components/mnunavbar/navbar';
+const App: React.FC = () => {
 
-
-// Home
-import MnuInfoHome from "./components/mnuinfo/home/homeaurora";  //HomeAurora
-
-
-// Dashboard
-import MnuInfoDashboard from "./components/mnuinfo/dashboard/dashboard" ; // Dashboard
-
-
-// World Today
-import MnuAddOnWorldToday from "./components/mnuinfo/worldtoday/worldtoday"; // World Today
-
-
-// Type Hover / Accordion / Nested Sidebar
-import MnuProgTypeHover from "./components/mnuPersonal/mnuproghover/mnuproghovermain";
-    import MnuPersonalProgDtlDB from "./components/mnuPersonal/mnuproghover/dtldb";
-    import MnuPersonalProgDtlAuto from "./components/mnuPersonal/mnuproghover/dtlscripting";
-    import MnuPersonalProgDtlSoftWare from "./components/mnuPersonal/mnuproghover/dtlprog";
-    import MnuPersonalProgDtlRpt from "./components/mnuPersonal/mnuproghover/dtlreports";
-
-// Data: Print list, Data JSON file
-import MnuDataJSONExecSales from "./components/mnuDataJSON/execsalesgrid";
-
-// Data: CRUD To-Do List, Devt: MS SQL Server, Prod: Supabase, Services.msc: FastAPI
-// Onhold: See also the services.msc: FastAPI, C:\Repos\Portfolio\APIFastAPI
-// Note: no Vercel API at the moment
-import MnuCRUDTodo from "./pages/todo" ;
-
-// Data: CRUD To-Do List, Devt: MS SQL Server, Prod: Supabase, Services.msc: NodeAPI
-import MnuCRUDTodov2Page from "./pages/todov2Page" ;
-
-
-
-// About
-import MnuInfoAbout from "./components/mnuinfo/about/about"; // About
-
-// Review ok
-import ReviewTradeSimulation from "./components/mnuReview/okTradeSimulationMain"; 
-import ReviewHomeGIFWall from "./components/mnuReview/okhomeGIFWall"; // Home GIF
-import ReviewGoldTwelveData from "./components/mnuReview/okgoldtwelvedata"; // Gold TwelveData
-
-// import ReviewNSB2Accordion from './components/mnuReviewNestedSidebarv2/accordion-OLD'; 
-import ReviewNSB2Accordion from './components/mnuReviewNestedSidebarv2/accordion';
-import ReviewNSB2TxtVw from './components/mnuReviewNestedSidebarv2/txtvw'; 
-
-import ReviewNSB2HomeOrig from "./components/mnuReviewNestedSidebarv2/homeorig";   // HomeOrig
-
-import ReviewNSB2ImgScrollHorizontalV1 from './components/mnuReviewNestedSidebarv2/imgscrollhorizonalv1';
-import ReviewNSB2ImgScrollHorizontalv2 from './components/mnuReviewNestedSidebarv2/imgscrollhorizonalv2';
-import ReviewNSB2Announcement from "./components/mnuReviewNestedSidebarv2/announcementmain";
-import ReviewNSB2AnnouncementJSON from "./components/mnuReviewNestedSidebarv2/announcement5main";
-
-
-console.log("===== ENVIRONMENT INFO =====");
-console.log("MODE:", import.meta.env.MODE);
-console.log("BASE:", import.meta.env.BASE_URL);
-console.log("API:", import.meta.env.VITE_API_BASE);
-console.log("============================");
-
-// Test Area: 
-
-
-function App() {
+  log("========== src/App.tsx Loaded ##### ");
+    
   
-    return (
-        <>
-          <Router basename={BASE_PATH}>
+  // REDUX Start, MUST be inside component
+  const dispatch = useDispatch(); 
 
-           
-            
-          {/* IIS: Important */}
-          {/* <Router basename="/"> */}
+  // RESTORE USER ON APP LOAD
+  useEffect(() => {
 
-          {/* Github: Important */}
-          {/* <Router basename="/portfolioreact"> */}
+    const savedUser = localStorage.getItem("user");
+
+    log("🔵 src/App.tsx: App load: raw localStorage 'user' =", savedUser);
+   
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      log("🟢 src/App.tsx: Parsed user object =", parsedUser);
+      log("🚀 src/App.tsx: Dispatching setUser...");
+
+      dispatch(setUser(JSON.parse(savedUser)));
+
+    } else {
+      log("⚠️ src/App.tsx: No user found in localStorage");
+    }
+  }, [dispatch]);
+  // REDUX End 
+
+  return (
+
+    // 0260426 
+    // ORIG
+    // <Router>
+
+    // TEST
+    <Router basename={import.meta.env.BASE_URL}>
+
+      <Routes>
+        
+       
+        {/* 20260426 
+        ORIG
+        npm dev, iis
+        <Route path="/" element={<Login />} />
+
+        TEST
+        npm run preview */}
+        <Route index element={<Login />} />
+
+         {/* Home page */}
+        <Route path="home" element={<MnuInfoHome />} />
 
 
-              {/* Single Page Application (SPA) method. MnuNavBar inside the router in order not to break the link */}
-              <MnuNavBar />
+        {/* Protected route for dashboard */}
+        {/* 20260426 
+        ORIG
+        <Route
+          path="/menu/*"
+          element={
+            <ProtectedRoute>
+              <Menu />
+            </ProtectedRoute>
+          }
+        /> 
+        
+        TEST 
+        */}
+        <Route
+          path="menu/*"
+          element={
+            <ProtectedRoute>
+              <Menu />
+            </ProtectedRoute>
+          }
+        /> 
 
-              <div className="main-content">
-                <Routes>
+       
 
-                      <Route path="/" element={<MnuInfoHome />} />
-                           
-                      <Route path="/dashboard" element={<MnuInfoDashboard />} />                   
-                                    
-                      <Route path="/worldtoday" element={<MnuAddOnWorldToday />} />
-            
-                      <Route path="/mnuprogtypehover" element={<MnuProgTypeHover />} />
-                          <Route path="/mnuprogdtldb" element={<MnuPersonalProgDtlDB />} />
-                          <Route path="/mnuprogdtlauto" element={<MnuPersonalProgDtlAuto />} />
-                          <Route path="/mnuprogdtlsoftware" element={<MnuPersonalProgDtlSoftWare />} />
-                          <Route path="/mnuprogdtlrpt" element={<MnuPersonalProgDtlRpt />} />
-                                      
-                    
-                      {/* Data */}
-                      <Route path="/mnudataexecsales" element={<MnuDataJSONExecSales />} />
-                      <Route path="/CRUDv1" element={<MnuCRUDTodo />} />  
-                      <Route path="/CRUDv2" element={<MnuCRUDTodov2Page />} />
+        <Route path="dashboard" element={<Navigate to="/menu/dashboard" />} />
+        <Route path="worldtoday" element={<Navigate to="/menu/worldtoday" />} />
+
+        <Route path="mnuprogtypehover" element={<Navigate to="/menu/MnuProgTypeHover" />} />
+
+        <Route path="mnuprogdtldb" element={<Navigate to="/menu/mnuprogdtldb" />} />
+        <Route path="mnuprogdtlauto" element={<Navigate to="/menu/mnuprogdtlauto" />} />
+        <Route path="mnuprogdtlsoftware" element={<Navigate to="/menu/mnuprogdtlsoftware" />} />
+        <Route path="mnuprogdtlrpt" element={<Navigate to="/menu/mnuprogdtlrpt" />} />
+
+        {/* <Route path="CRUDv1" element={<Navigate to="/menu/CRUDv1" />} />    */}
+
+        <Route path="CRUDTasksToDo" element={<Navigate to="/menu/CRUDTasksToDo" />} />
+        <Route path="CRUDv2" element={<Navigate to="/menu/CRUDv2" />} />
+        <Route path="prntlst" element={<Navigate to="/menu/prntlst" />} />
+ 
+        <Route path="users" element={<Navigate to="/menu/users" />} />
+        <Route path="usermode" element={<Navigate to="/menu/usermode" />} />
+
+        <Route path="about" element={<Navigate to="/menu/about" />} />
+
+        <Route path="okreviewtradesimulation" element={<Navigate to="/menu/okreviewtradesimulation" />} />
+        <Route path="okreviewhomegifwall" element={<Navigate to="/menu/okreviewhomegifwall" />} />
+        <Route path="okreviewgoldtwelvedata" element={<Navigate to="/menu/okreviewgoldtwelvedata" />} />
+        <Route path="ReviewAccordion" element={<Navigate to="/menu/ReviewAccordion" />} />
+        <Route path="ReviewNSB2AnnouncementJSON" element={<Navigate to="/menu/ReviewNSB2AnnouncementJSON" />} />
+        <Route path="Review4TypesAnnouncement" element={<Navigate to="/menu/Review4TypesAnnouncement" />} />
+        <Route path="ReviewLoadTxtAndDisp" element={<Navigate to="/menu/ReviewLoadTxtAndDisp" />} />
+        <Route path="ReviewImageScrollHoriV1" element={<Navigate to="/menu/ReviewImageScrollHoriV1" />} />
+        <Route path="ReviewImageScrollHoriV2" element={<Navigate to="/menu/ReviewImageScrollHoriV2" />} />
+        <Route path="ReviewVertMsg" element={<Navigate to="/menu/ReviewVertMsg" />} />
+        <Route path="ReviewVertMsgV2" element={<Navigate to="/menu/ReviewVertMsgV2" />} />
 
 
-                      <Route path="/about" element={<MnuInfoAbout />} />
+      </Routes>
+    </Router>
+  );
+};
 
-
-                      {/* Review  */}
-                      <Route path="/okreviewtradesimulation" element={<ReviewTradeSimulation />} />                 
-                      <Route path="/okreviewhomegifwall" element={<ReviewHomeGIFWall />} />
-                      <Route path="/okreviewgoldtwelvedata" element={<ReviewGoldTwelveData />} />
-
-
-                      <Route path="/okreviewnsb2accordion" element={<ReviewNSB2Accordion />} />
-                      <Route path="/okreviewnsb2txtvw" element={<ReviewNSB2TxtVw />} />
-                      <Route path="/okreviewnsb2homeorig" element={<ReviewNSB2HomeOrig />} />
-                      <Route path="/okreviewnsb2imgscrollv1" element={< ReviewNSB2ImgScrollHorizontalV1 />} />
-                      <Route path="/okreviewnsb2imgscrollv2" element={< ReviewNSB2ImgScrollHorizontalv2 />} />
-                      <Route path="/okreviewnsb2announcement" element={< ReviewNSB2Announcement />} />
-                      <Route path="/okreviewnsb2announcementJSON" element={<ReviewNSB2AnnouncementJSON />} />
-             
-                      {/* Test component */}
-
-                </Routes>
-              </div>
-
-          </Router>
-
-        </>
-    )
-}
-
-export default App
+export default App;

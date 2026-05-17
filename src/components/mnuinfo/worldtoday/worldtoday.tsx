@@ -1,18 +1,23 @@
-
 // file:    src/components/mnuinfo/worldtoday/worldtoday.tsx
+
 
 import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
 import { TreeItem } from "@mui/x-tree-view/TreeItem";
 
 
 import { useEffect , useState} from "react";  // React, 
-import  AnnouncementVert from "../../mnuReviewNestedSidebarv2/announcement6VertOpenURL" ;
+import  AnnouncementVert from "../../mnuReview/announcement6VertOpenURL" ;
 
-import Accordion from "../../mnuReviewNestedSidebarv2/accordionfunc";
+// KEEP !!
+// import Accordion from "../../mnuReview/accordionfunc";
 
 import { BASE_PATH } from "../../../config" ;
 
+import TooltipWrapper from "../../../components/customTooltipWrapper";  
 
+import PublicIcon from "@mui/icons-material/Public";
+
+import { log } from "../../../config/debug";
 
 interface Announcement {
   message: string;
@@ -57,17 +62,26 @@ export default function WorldTodayV2() {
       const loadAnnouncements = async () => {
         try {
         
-        let res: Response;
-        if (import.meta.env.MODE === "production") {
-            res = await fetch(`${BASE_PATH}/worldtoday.json`);
-        } else {
-            res = await fetch(`${BASE_PATH}worldtoday.json`);
-        }
+       
+        // NEW
+        const res = await fetch(`${BASE_PATH}worldtoday.json`);
+        // if (import.meta.env.MODE === "production") {
+        //     res = await fetch(`${BASE_PATH}/worldtoday.json`);
+        // } else {
+        //     res = await fetch(`${BASE_PATH}worldtoday.json`);
+        // }
+
+
+        // OLD
+        // let res: Response;
+        // if (import.meta.env.MODE === "production") {
+        //     res = await fetch(`${BASE_PATH}/worldtoday.json`);
+        // } else {
+        //     res = await fetch(`${BASE_PATH}worldtoday.json`);
+        // }
         const data = await res.json();
 
-
-
-          console.log("AnnouncementVert data:" ,  data) // Use comma , NOT + This lets Chrome DevTools display the real object structure.
+          log("AnnouncementVert data:" ,  data) // Use comma , NOT + This lets Chrome DevTools display the real object structure.
           setAnnouncements(data);
         } catch (err) {
           console.error("Failed to load announcements:", err);
@@ -88,9 +102,13 @@ export default function WorldTodayV2() {
      return (
         <div>  
 
+            <div>
+
+           
             <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                 <h2>World Today</h2>  
-                <div style={{ width: "300px" }}>
+
+                 <div style={{ width: "300px" }}>
                     <AnnouncementVert
                     announcements={mappedAnnouncements} // use mapped version // passes full {message, url} objects
                     height={16}
@@ -98,15 +116,49 @@ export default function WorldTodayV2() {
                     pauseDuration={4000}
                     />
                 </div>
+
+         
             </div>
 
+                <TooltipWrapper
+                    title={
+                    <>                
+                        - Read the latest trend happening in the World Today  
+                                <span
+                                    className="my-cell"
+                                    style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+                                > 
+                                    <PublicIcon sx={{ fontSize: 18 }} />
+                                    
+                                </span>
+                        
+                         <br /> <br />
+                        - The module provides direct links to search engines, information on precious metals, and the latest currency and cryptocurrency rates. <br /><br />
+                        - Similar URL link has been provided also in scrolling mode like an announcement. <br /><br />
+
+                    </>
+                    }
+                    maxWidth={1000}
+                >
+                    <span className="my-cell">
+                    &nbsp;&nbsp;&nbsp;*&nbsp;&nbsp; Overview
+                    </span>
+
+                </TooltipWrapper>
+
+                <br></br><br></br>
+
+             </div>
+
+
+            {/* KEEP !! 
             <Accordion title="Highlight">
                 <p className="DivTxtFormatHighlight">            
                 The module provides direct links to search engines, information on precious metals, and the latest currency and cryptocurrency rates.
                 </p>
            
             </Accordion>
-            <br></br>
+            <br></br> */}
 
   
             <SimpleTreeView 

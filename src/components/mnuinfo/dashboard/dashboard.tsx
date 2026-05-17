@@ -12,7 +12,12 @@ import MyGoldPrice from "./goldBinancePrice";
 
 import Myxrate from "./exchangeMain";
 
-import Accordion from "../../mnuReviewNestedSidebarv2/accordionfunc" ;
+// KEEP !! 
+// import Accordion from "../../mnuReview/accordionfunc" ;
+
+import TooltipWrapper from "../../../components/customTooltipWrapper";  
+// import PublicIcon from "@mui/icons-material/Public";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 
 export default function funcinfodashboard(){
@@ -20,6 +25,50 @@ export default function funcinfodashboard(){
     return(
     <div>
         <h2>Dashboard</h2> 
+
+
+        <div>
+            <TooltipWrapper
+                    title={
+                <>                
+                    Welcome to the Dashboard 
+                            <span
+                                className="my-cell"
+                                style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+                            > &nbsp;
+                                 <DashboardIcon sx={{ fontSize: 20 }} />
+
+                               
+                                
+                            </span>
+                    
+                        <br /> <br />                 
+                    Get a quick overview of the key metrics, track progress, and make data-driven decisions all in one place. <br />
+                    Navigate through the sections to monitor performance, analyze trends, and stay on top of what matters most.<br /><br />
+
+
+                    Bitcoin and Gold Live chart by Binance WebSocket API enables real-time, bidirectional communication for market data retrieval, trading and account management.<br /><br />
+
+                    OpenWeatherMap API provides current weather data, forecasts and historical data for any geographic location. Weather Today is auto-update every 1 hour.<br /><br />
+
+                    Exchangerate.host API provides a simple REST API with real-time and historical exchange rates for 168 world currencies, <br />
+                    delivering currency pairs in universally usable JSON format - compatible with any of your applications.<br /><br />
+
+                </>
+                }
+                maxWidth={1000}
+            >
+                <span className="my-cell">
+                &nbsp;&nbsp;&nbsp;*&nbsp;&nbsp; Overview
+                </span>
+
+            </TooltipWrapper>
+
+            <br></br><br></br>
+
+        </div>       
+        
+        {/* KEEP !! 
         <Accordion title="Highlight">
             <p className="DivTxtFormatHighlight">            
             Welcome to the Dashboard <br></br><br></br>
@@ -28,7 +77,8 @@ export default function funcinfodashboard(){
             </p>
            
         </Accordion>
-         <br></br>
+         <br></br> */}
+
         <div className="dashboard">
 
             {/* LEFT COLUMN */}

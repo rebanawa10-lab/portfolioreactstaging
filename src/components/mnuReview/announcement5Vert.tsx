@@ -1,4 +1,6 @@
-// file: announcement5Vert.tsx
+// file:    src/components/mnunReview/announcement5Vert.tsx
+
+
 // remarks:   Announcement parameters  message, url
 
 import React, { useEffect, useState, useRef } from "react";

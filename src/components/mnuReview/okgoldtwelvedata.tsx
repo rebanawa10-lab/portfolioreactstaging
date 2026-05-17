@@ -1,6 +1,11 @@
+ // file:    src/components/mnunReview/okgoldtwelvedata.tsx
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { LineChart, Line, ResponsiveContainer, Tooltip } from "recharts";
+
+import { log } from "../../../src/config/debug";
 
 type GoldPoint = {
   time: string;
@@ -14,7 +19,7 @@ const GoldMiniChart: React.FC = () => {
 
   const apiKey = import.meta.env.GOLD_KEY;
 
-  console.log("apiKey:" + apiKey);
+  log("apiKey:" + apiKey);
 
     // https://api.twelvedata.com/price?symbol=XAU/USD&apikey=a75ea28059e34bb68296def06683a213
   const fetchGold = async () => {

@@ -14,7 +14,7 @@ import {
 
 import { Line } from "react-chartjs-2";
 
-// DEBUG MODE: Hide
+// DEBUG MODE: Hide Exchange Rate Smry
 import ExchangeSMRY from "./exchangeSMRY";
 
 import exchangeDataUSD from "./exchangeSGDUSDdata.json";
@@ -88,7 +88,7 @@ export default function SgdUsdChart() {
         <div style={styles.gridContainer}>
             <div style={styles.gridItem}>
                 <h3>Exchange Rates (Base: SGD)</h3>   
-                {/* DEBUG MODE: Hide */}
+                {/* DEBUG MODE: Hide Exchange Rate Smry */}
                 <ExchangeSMRY />   
             </div>
 

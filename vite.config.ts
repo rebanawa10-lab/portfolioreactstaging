@@ -16,8 +16,8 @@ export default ({ mode }: { mode: string }) => {
         },
       }),
     ],
-    base: env.VITE_BASE || "/portfolioreact/",   // ProdGithub 
-    // base: env.VITE_BASE || "/portfolioreactstaging/",   // StagingGithub, Devt, IIS Dist, IIS Prod 
+    // base: env.VITE_BASE || "/portfolioreact/",   // ProdGithub  
+    base: env.VITE_BASE || "/portfolioreactstaging/",   // StagingGithub, Devt, IIS Dist, IIS Prod 
   })
 }
 

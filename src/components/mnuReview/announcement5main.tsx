@@ -1,5 +1,6 @@
-// file:    announcementmain.tsx
+  // file:    src/components/mnunReview/announcementmain.tsx
 
+  
 import { useEffect , useState} from "react";  // React, 
 
 
@@ -9,6 +10,8 @@ import { useEffect , useState} from "react";  // React,
 // import Announcement5Vert from "../../../public/announcement5URL.json" ;
 
 import  Announcement5Vert from "./announcement5Vert";
+
+import { log } from  "../../../src/config/debug";
 
 interface Announcement {
   message: string;
@@ -30,7 +33,7 @@ useEffect(() => {
     try {
       const res = await fetch("/announcement5URL.json");
       const data = await res.json();
-      console.log("announcement5URL data:" ,  data) // Use comma , NOT + This lets Chrome DevTools display the real object structure.
+      log("announcement5URL data:" ,  data) // Use comma , NOT + This lets Chrome DevTools display the real object structure.
       setAnnouncements(data);
     } catch (err) {
       console.error("Failed to load announcements:", err);

@@ -1,5 +1,4 @@
-
-// file:    CandlestickChart.tsx
+ // file:    src/components/mnunReview/okTradeSimulation.tsx
 
 import React, { useEffect, useRef } from "react";
 import { 

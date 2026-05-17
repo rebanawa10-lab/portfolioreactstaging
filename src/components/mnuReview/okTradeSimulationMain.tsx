@@ -1,5 +1,4 @@
-
-// file:    TradeSimulationMain.tsx
+ // file:    src/components/mnunReview/okTradeSimulationMain.tsx
 
 import React from "react";
 import CandlestickSimulate from "./okTradeSimulation";

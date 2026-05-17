@@ -1,11 +1,12 @@
 // file:    src/pages/todov2Page.tsx
 
+
 import { useEffect, useState } from "react"
 import type { Todo } from "../types/todov2Type";  
 import { getTodos, createTodo, deleteTodo, updateTodo } from "../../src/api/todov2API" ; 
 import TodoList from "../../src/components/todov2listComp"; 
 import TodoForm from "../../src/components/todov2formComp"; 
-import Accordion from "../components/mnuReviewNestedSidebarv2/accordionfunc";
+import TooltipWrapper from "../components/customTooltipWrapper"; 
 
 function App() {
 
@@ -56,31 +57,57 @@ function App() {
   }
 
   return (
-    
-    <div>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-            <h2 style={{ margin: 0 }}>CRUD To-Do List</h2>
-        
-        </div>
-        <Accordion title="Overview">
-              <p className="DivTxtFormatHighlight">            
-              The <b>CRUD To-Do List module</b> is a simple task management component that allows users to create, view, update, and delete tasks.<br></br><br></br>
-              It demonstrates a full <b>CRUD workflow</b> using a React frontend and an API backend.<br></br><br></br>
+    <>
+        <h2>CRUD To-Do list</h2>
 
-              * Create, Read, Update, and Delete (CRUD) are the four operations (actions) of user interface.<br></br><br></br>
-              </p>    
-        </Accordion>
-        <br></br>
+        <TooltipWrapper
+            title={
+            <>
+                The <b>CRUD To-Do List module</b> is a simple task management component that allows users to create, view, update, and delete tasks.<br /><br />
+                It demonstrates a full <b>CRUD workflow</b> using a React frontend and an API backend.<br /><br />
 
-      <TodoForm onCreate={addTodo} />
+                * Create, Read, Update, and Delete (CRUD) are the four operations (actions) of user interface.<br></br><br></br>
+            </>
+            }
+           maxWidth={850}
+        >
+            <span className="my-cell">
+            &nbsp;&nbsp;&nbsp;*&nbsp;&nbsp; Overview
+            </span>
+        </TooltipWrapper>
 
-      <TodoList
-        todos={todos}
-        onDelete={removeTodo}
-        onUpdate={handleUpdate}
-      />
-    </div>
+
+        <br></br><br></br>
+
+        <TodoForm onCreate={addTodo} />
+
+        <TodoList
+          todos={todos}
+          onDelete={removeTodo}
+          onUpdate={handleUpdate}
+        />
+   
+  </>
   )
 }
+
+     
+
+  {/* OTHR 
+  // import Accordion from "../components/mnuReview/accordionfunc";
+
+     <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+            <h2 style={{ margin: 0 }}>CRUD To-Do List</h2>
+        </div>
+
+  
+  <Accordion title="Overview">
+        <p className="DivTxtFormatHighlight">            
+        The <b>CRUD To-Do List module</b> is a simple task management component that allows users to create, view, update, and delete tasks.<br></br><br></br>
+        It demonstrates a full <b>CRUD workflow</b> using a React frontend and an API backend.<br></br><br></br>
+
+        * Create, Read, Update, and Delete (CRUD) are the four operations (actions) of user interface.<br></br><br></br>
+        </p>    
+  </Accordion> */}
 
 export default App

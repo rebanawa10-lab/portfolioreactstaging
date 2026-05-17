@@ -3,8 +3,10 @@
 
 import type { Todo } from "../types/todov2Type"; 
 
+import { log } from "../../src/config/debug";
+
 const API = `${import.meta.env.VITE_NODEJS_API || ""}/api/todo`
-// console.log("Todo MS SQL SVR:", API); 
+// log("Todo MS SQL SVR:", API); 
 
 export async function getTodos(): Promise<Todo[]> {
   const res = await fetch(API)
@@ -29,7 +31,7 @@ export async function createTodo(name: string): Promise<Todo> {
   }
 
   const data = await res.json()
-  console.log("Created:", data)   // 👈 debug
+  log("Created:", data)   // 👈 debug
   return data
 }
  

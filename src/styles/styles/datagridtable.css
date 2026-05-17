@@ -1,0 +1,264 @@
+/* file:   src/styles/styles/datagrid.css */
+
+
+/* =========================
+   GLOBAL DATAGRID STANDARD
+   ========================= */
+
+
+.standard-datagrid {
+  font-family: Arial;
+  /* font-size: 30px; */
+  border: none;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* HEADER */
+/* HEADER HEIGHT */
+.standard-datagrid .MuiDataGrid-columnHeaders {
+  min-height: 40px !important;
+  max-height: 40px !important;
+}
+
+/* .standard-datagrid .MuiDataGrid-columnHeaders {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+} */
+
+/* ROWS */
+/* ROW HEIGHT */
+.standard-datagrid .MuiDataGrid-row {
+  /* background-color: rgb(210, 235, 153) !important; */
+  max-height: 40px !important;
+  min-height: 35px !important;
+}
+
+/* .standard-datagrid .MuiDataGrid-row {
+  border-bottom: 1px solid #eee;
+} */
+
+/* ZEBRA STRIPES */
+.standard-datagrid .even {
+  background-color: #ffffff;
+}
+
+.standard-datagrid .odd {
+  background-color: #fcfcfc;
+}
+
+/* HOVER */
+.standard-datagrid .MuiDataGrid-row:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+/* REMOVE SELECTION COLOR */
+.standard-datagrid .MuiDataGrid-row.Mui-selected {
+  background-color: transparent !important;
+}
+
+.standard-datagrid .MuiDataGrid-row.Mui-selected:hover {
+  background-color: #f9f9f9 !important;
+}
+
+
+/* .standard-datagrid .MuiDataGrid-cell {
+  padding-top: 4px;
+  padding-bottom: 4px;
+} */
+
+.standard-datagrid .MuiDataGrid-columnHeaderTitle {
+  font-size: 12px;
+}
+
+/* REMOVE FOCUS OUTLINE (Excel feel) */
+.standard-datagrid .MuiDataGrid-cell:focus,
+.standard-datagrid .MuiDataGrid-columnHeader:focus {
+  outline: none;
+}
+
+/* EDIT MODE HIGHLIGHT */
+.standard-datagrid .editing {
+  background-color: #fff7e6 !important;
+}
+
+/* EDIT MODE INPUT FONT */
+.standard-datagrid .MuiInputBase-input {
+  font-size: 12px !important;
+  font-family: Arial !important;
+
+}
+
+/* EDIT MODE SELECT FONT */
+.standard-datagrid .MuiSelect-select {
+  font-size: 12px !important;
+  font-family: Arial !important;
+}
+
+/* EDIT MODE CELL CONTAINER */
+.standard-datagrid .MuiDataGrid-cell--editing {
+
+  display: flex !important;
+  align-items: center !important;   /* vertical center in edit */
+  padding: 0 !important;
+  box-sizing: border-box;
+
+
+  /* padding: 0 !important;
+  height: 100% !important;
+  align-items: center;
+  box-sizing: border-box; */
+
+
+  /* font-size: 12px !important;
+  padding: 0 !important;
+  align-items: center; */
+
+}
+
+/* REMOVE INPUT EXTRA HEIGHT */
+/* KEEP INPUT INSIDE ROW HEIGHT */
+.standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-root {
+  height: 100% !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* 
+.standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-root {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+} */
+
+/* .standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-root {
+  height: 100% !important;
+  font-size: 12px !important;
+  font-family: Arial !important;
+} */
+
+/* REMOVE MUI INPUT FOCUS BORDER */
+.standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* FORCE INPUT TO MATCH ROW HEIGHT */
+.standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-input {
+
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 6px !important;
+  height: 100% !important;
+
+  /* padding: 2px 6px !important;
+  line-height: 30px !important;
+  font-size: 12px !important;
+  height: 100% !important;
+  box-sizing: border-box; */
+
+
+  /* padding: 4px 6px !important;
+  line-height: 1 !important;
+  height: 100% !important;
+  box-sizing: border-box; */
+}
+
+/* ENSURE INPUT DOES NOT ADD HEIGHT */
+.standard-datagrid .MuiDataGrid-cell--editing .MuiInputBase-input {
+  padding: 2px 6px !important;
+  height: 100% !important;
+  box-sizing: border-box;
+  line-height: 30px !important;
+}
+
+.standard-datagrid input {
+  border: none !important;
+  outline: none !important;
+}
+
+/* VIEW MODE FONT */
+.standard-datagrid .MuiDataGrid-cellContent {
+  font-family: Arial !important;
+  font-size: 12px !important;
+}
+
+/* EDIT MODE FONT */
+.standard-datagrid .MuiDataGrid-editInputCell input {
+  font-family: Arial !important;
+  font-size: 12px !important;
+}
+
+
+/* COMPACT CELLS */
+/* CELL ALIGNMENT FIX */
+/* CELL CONTAINER INHERITS */
+.standard-datagrid .MuiDataGrid-cell {
+  font-family: Arial !important;
+  font-size: 12px !important;
+
+
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start; */
+
+
+/*   
+  line-height: 30px;
+  font-size: 12px; */
+ 
+}
+
+/* REMOVE EDIT BLUE OUTLINE THAT EXPANDS VISUALLY */
+.standard-datagrid .MuiDataGrid-cell:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* PREVENT INPUT / BORDER FROM OVERFLOWING CELL */
+.standard-datagrid .MuiDataGrid-cell {
+  overflow: hidden !important;
+}
+
+
+/* DROPDOWN MENU ITEMS */
+.MuiMenuItem-root {
+  font-family: Arial !important;
+  font-size: 12px !important;
+}
+
+/* SELECT INPUT INSIDE GRID (EDIT MODE DROPDOWN FIELD) */
+.standard-datagrid .MuiSelect-select {
+  font-family: Arial !important;
+  font-size: 12px !important;
+}
+
+/* .standard-datagrid .MuiDataGrid-footerContainer {
+  min-height: 40px !important;
+  height: 40px !important;
+  border-top: 1px solid #ddd;
+} */
+
+/* REMOVE GAP BETWEEN LAST ROW AND PAGINATION */
+.standard-datagrid .MuiDataGrid-virtualScroller {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* CRITICAL: removes hidden bottom space in content area */
+.standard-datagrid .MuiDataGrid-virtualScrollerContent {
+  padding-bottom: 0 !important;
+}
+
+/* .standard-datagrid .MuiDataGrid-footerContainer {
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: 1px solid #e0e0e0;
+} */
+

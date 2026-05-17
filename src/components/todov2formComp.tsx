@@ -1,5 +1,6 @@
 // file:    src/components/todov2formComp.tsx
 
+
 import { useState } from "react"
 
 interface Props {
@@ -18,7 +19,7 @@ export default function TodoForm({ onCreate }: Props) {
   }
 
   return (
-    <form onSubmit={submit} className="form-container">
+    <form onSubmit={submit} className="form-horizontal">
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}

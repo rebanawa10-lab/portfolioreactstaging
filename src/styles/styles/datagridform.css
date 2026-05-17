@@ -1,0 +1,75 @@
+/* file:   src/styles/styles/datagridform.css */
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center; /* 👈 vertical center everything */
+}
+
+.form-row input,
+.form-row select {
+  height: 34px;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+/* ACTION ROW ALIGNMENT */
+.form-actions {
+  display: flex;
+  align-items: center; /* 👈 THIS makes button vertically centered */
+  gap: 10px;
+}
+
+
+.form-horizontal {
+  display: flex;
+  align-items: center;   /* vertical center all items */
+  gap: 10px;
+  flex-wrap: wrap;       /* allows wrap on small screens */
+}
+
+/* consistent input size */
+.form-horizontal input,
+.form-horizontal select {
+  height: 34px;
+  font-size: 12px;
+  font-family: Arial;
+  padding: 0 8px;
+}
+
+/* button alignment */
+.form-horizontal button {
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+
+/* error beside button */
+.errMsg {
+  color: red;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+/* Make sure the checkbox and label are aligned horizontally */
+.form-row {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  gap: 8px; /* Optional gap between checkbox and label */
+}
+
+.form-row__label {
+  margin: 0; /* Remove any margin if it's added by default */
+  font-size: 14px;
+  width: 100px;
+  border-style: none;
+  
+}
+
