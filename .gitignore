@@ -22,7 +22,7 @@ WEB CONFIG BAK/
 node_modules/
 
 # build output
-dist/
+# dist/
 
 # Logs
 logs
