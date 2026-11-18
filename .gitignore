@@ -16,7 +16,8 @@
 !.env.example
 
 # REB files
-WEB CONFIG BAK/
+# Ignore directories starting with web
+web*/
 
 # dependencies
 node_modules/
