@@ -1,4 +1,7 @@
-// file:    src/components/mnunavbar/navbar.tsx    
+
+
+
+// file:    C:\Repos\Portfolio\React\src\components\mnunavbar\navbar.tsx  
 //          REDUX 
 
 import React, { useState } from 'react';
@@ -138,7 +141,7 @@ const App: React.FC = () => {
     const is_LoginTypeID = localStorage.getItem("is_LoginTypeID");
     const is_LoginTypePWD = localStorage.getItem("is_LoginTypePWD");
 
-    log("========== src/components/mnunavbar/navbar: Login Attribute:", {
+    log("==F: NAVBAR.TSX : Login Attribute:", {
                   NavBarType: is_LoginNavBar,
                   ID: is_LoginTypeID,
                   PWD: is_LoginTypePWD
@@ -149,6 +152,8 @@ const App: React.FC = () => {
     const isAdmin = useSelector((state: RootState) => state.user.is_admin);
     const isLevel = useSelector((state: RootState) => state.user.is_level);
    
+    log ("==F: NAVBAR.TSX name, RootState -> " , name)
+
     return (
       <>
    
@@ -166,7 +171,7 @@ const App: React.FC = () => {
                 <LogoImage src={mnulogo} alt="App Logo" />
               </CenterSection>
 
-              {/* RIGHT: name */}
+              {/* RIGHT: name , Admin */}
               <RightSection className="my-cell">
                 {name ? (
                   <>
@@ -182,7 +187,7 @@ const App: React.FC = () => {
                       }
 
                   </>
-                ) : "Not logged in"}
+                ) : "[guess]"}
               </RightSection>
 
         </TopBar>
@@ -208,15 +213,65 @@ const App: React.FC = () => {
                     <li className="MnuRowMargin" >                   
                         <Link to="/menu" onClick={() => setIsOpen(false)} className="menuLink">Home</Link>
                     </li>
+          
+          
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/employees" onClick={() => setIsOpen(false)} className="menuLink">Employees CRUD</Link>     {/* 2026008 27 */}     
+                    </li>
+
+                    
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/employeeskpi" onClick={() => setIsOpen(false)} className="menuLink">Employees KPI</Link>     {/* 202609 08 */}     
+                    </li>
+                 
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/exchangeratetoday" onClick={() => setIsOpen(false)} className="menuLink">Dashboard Exchange Rate</Link>         {/* 2026008 27 */}      
+                    </li>
 
                     <li className="MnuRowMargin" >                                  
-                        <Link to="/dashboard" onClick={() => setIsOpen(false)} className="menuLink">Dashboard</Link>         
+                        <Link to="/dashboard" onClick={() => setIsOpen(false)} className="menuLink">Dashboard WebSocket</Link>         
                     </li>
 
                     <li className="MnuRowMargin" >                                  
                         <Link to="/worldtoday" onClick={() => setIsOpen(false)} className="menuLink">World Today</Link>         
                     </li>
+                  
+                  
+                    <li className="MnuRowMargin" >
+                      <Link to="/about" onClick={() => setIsOpen(false)} className="menuLink">About</Link> 
+                    </li>
+           
 
+
+
+                    
+                  
+                 
+
+                </ul>
+
+
+                <ul className="MnuHdrHide">  
+
+      
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/employeeiis" onClick={() => setIsOpen(false)} className="menuLink">Employees CRUD IIS</Link>     {/* 2026008 27 */}     
+                    </li>
+
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/employeekpidashboardiis" onClick={() => setIsOpen(false)} className="menuLink">Employee KPI IIS</Link>         {/* 202609 08 */}      
+                    </li>
+                  
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/exchangeratetodayiis" onClick={() => setIsOpen(false)} className="menuLink">Dashboard Exchange Rate IIS</Link>         {/* 2026008 27 */}      
+                    </li>
+
+                  
+                   
+                    <li className="MnuRowMargin" >                                  
+                        <Link to="/employeekpireport" onClick={() => setIsOpen(false)} className="menuLink">Button KPI Report</Link>         {/* 2026009 11 */}      
+                    </li>
+                   
                     <li className="MnuRowMargin" >
                         <Link to="/mnuprogtypehover" onClick={() => setIsOpen(false)} className="menuLink">Menu type in Hover</Link>      
                     </li> 
@@ -538,11 +593,6 @@ const App: React.FC = () => {
                     {/* Super Admin End */}    
                     
 
-                    <li className="MnuRowMargin" >
-                      <Link to="/about" onClick={() => setIsOpen(false)} className="menuLink">About</Link> 
-                    </li>
-
-                   
 
 
                 </ul>

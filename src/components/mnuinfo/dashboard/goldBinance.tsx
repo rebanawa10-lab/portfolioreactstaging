@@ -15,7 +15,7 @@ import {
     UTCTimestamp,
  } from "lightweight-charts";
 
-const GoldChartLive: React.FC = () => {
+  const GoldChartLive: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
@@ -28,6 +28,7 @@ const GoldChartLive: React.FC = () => {
     const chart = createChart(containerRef.current, {
       width: containerRef.current.clientWidth,
       height: 280, // 500
+   
       layout: {
         background: { color: "#0f172a" },
         textColor: "#d1d5db",
@@ -118,7 +119,17 @@ const GoldChartLive: React.FC = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: "930px" }} />;   // ORIG: width: "100%"
+  return <div ref={containerRef} 
+  // style={{ width: "930px" }}
+
+
+  style={{
+            width: "930px",
+            borderRadius: "6px",
+            overflow: "hidden",
+        }}
+  
+  />;   // ORIG: width: "100%"
 };
 
 export default GoldChartLive;

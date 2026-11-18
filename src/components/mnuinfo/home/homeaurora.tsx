@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { BASE_PATH } from "../../../config" ;
+// import { BASE_PATH } from "../../../config" ;
+
+import { BASE_PATH } from "../../../config";
 
 
 
@@ -63,12 +65,16 @@ const Home: React.FC = () => {
         }}
       >
 
-      if (import.meta.env.MODE === "production") {
-        <source src={`${BASE_PATH}/auroraborealis.mp4`} type="video/mp4" /> 
-      }
-      else {     
-        <source src={`${BASE_PATH}auroraborealis.mp4`} type="video/mp4" /> 
-      }       
+          <source src={`${import.meta.env.BASE_URL}auroraborealis.mp4`} type="video/mp4" />
+
+          {/* if (import.meta.env.MODE === "production") {
+            <source src={`${BASE_PATH}/auroraborealis.mp4`} type="video/mp4" /> 
+          }
+          else {     
+            <source src={`${BASE_PATH}auroraborealis.mp4`} type="video/mp4" /> 
+          }      */}
+
+
      </video>
 
       {/* Message */}

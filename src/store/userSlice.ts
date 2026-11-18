@@ -1,4 +1,4 @@
-// file:        src/components/store/userSlice.tsx
+// file:        src/components/store/userSlice.ts
 
 
 import { createSlice } from "@reduxjs/toolkit";

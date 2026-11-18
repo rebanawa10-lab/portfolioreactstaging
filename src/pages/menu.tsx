@@ -1,4 +1,7 @@
-// file:  src/pages/Menu.tsx
+
+
+
+// file:    C:\Repos\Portfolio\React\src\pages\Menu.tsx
 
 
 import '../App.css';
@@ -20,8 +23,30 @@ import MnuNavBar from './../components/mnunavbar/navbar';   // Single Page Appli
 
 import MnuInfoHome from "./../components/mnuinfo/home/homeaurora";  //HomeAurora
 
+
+
+
+import MnuEmployeePageSB from "../employee/employeeSB.tsx" ; // 202609 03
+import MnuEmployeeKPISB from "../employeekpi/employeeSBKPIDashboard.tsx" ; // 202609 03
+import MnuExchangeRateSB  from "../../src/exchangerate/exchangeRateSBDashboard.tsx"; // 202609 02
 import MnuInfoDashboard from "./../components/mnuinfo/dashboard/dashboard" ; // Dashboard
 import MnuAddOnWorldToday from "./../components/mnuinfo/worldtoday/worldtoday"; // World Today
+import MnuInfoAbout from "./../components/mnuinfo/about/about"; // About
+// import AIAgent from "../ai/AIAgent.tsx" ;   // 202609 14
+
+
+import MnuEmployeeIIS from "../employee/employee.tsx"; // 202608 27
+import MnuExchangeRateIIS  from "../../src/exchangerate/ExchangeRateDashboard.tsx"; // 202608 31
+import MnuEmployeeKPIDashboardIIS from "../../src/employeekpi/employeeKPIDashboard.tsx"; // 202609 06
+
+
+
+import MnuEmployeeKPIReport from "../employeekpi/employeeKPIReport.tsx" ; // 202609 11
+
+
+
+
+
 
 
 // Menu Type Hover / Accordion / Nested Sidebar
@@ -56,7 +81,7 @@ import MnuDataJSONExecSales from "./../components/mnuDataJSON/execsalesgrid";   
     // Prod Data:       VITE_NODEJS_API=https://apinodejssupabaseprod.vercel.app
 
 
-import MnuInfoAbout from "./../components/mnuinfo/about/about"; // About
+
 
 
 // REB keep as reference START
@@ -101,22 +126,17 @@ import UsersPage from  "../pages/users";
 import UserMode from "../pages/usermode"; 
 
 
-console.log("===== ENVIRONMENT INFO =====");
-console.log("src/pages/Menu: MODE:", import.meta.env.MODE);
-console.log("src/pages/Menu: BASE:", import.meta.env.BASE_URL);
-console.log("src/pages/Menu: API:", import.meta.env.VITE_API_BASE);
+log("===== ENVIRONMENT INFO =====");
+log("src/pages/Menu: MODE:", import.meta.env.MODE);
+log("src/pages/Menu: BASE:", import.meta.env.BASE_URL);
+log("src/pages/Menu: API:", import.meta.env.VITE_API_BASE);
 
-console.log(`src/pages/Menu: MODE:  ${env.mode}`);
-console.log(`src/pages/Menu: BASE:  ${env.baseUrl}`);
-console.log(`src/pages/Menu: API:   ${env.apiBase}`);   
+log(`src/pages/Menu: MODE:  ${env.mode}`);
+log(`src/pages/Menu: BASE:  ${env.baseUrl}`);
+log(`src/pages/Menu: API:   ${env.apiBase}`);   
+log("============================");
 
-console.log("============================");
-
-// log("src/pages/Menu: Menu loaded");
-console.log("========== src/pages/Menu.tsx Loaded ##### ");
-console.log("CONFIG src/pages/Menu: Menu loaded");
-
-log("========== src/pages/Menu.tsx Loaded EOF ##### ");
+log("==F: MENU.TSX Menu Loaded ##### ");
 
 
 const Menu = () => {
@@ -132,9 +152,23 @@ const Menu = () => {
 
                 <Route path="" element={<MnuInfoHome />} />
 
+               
+                
+                <Route path="employeesb" element={<MnuEmployeePageSB />} />      {/* 202608 27 */}           
+                <Route path="employeekpisb" element={<MnuEmployeeKPISB />} />      {/* 202609 08 */}
+                <Route path="exchangeratetodaysb" element={<MnuExchangeRateSB />} /> {/* 202609 02 */}            
                 <Route path="dashboard" element={<MnuInfoDashboard />} />
                 <Route path="worldtoday" element={<MnuAddOnWorldToday />} /> 
+                <Route path="about" element={<MnuInfoAbout />} />
+            
+                
 
+                <Route path="exchangeratetodayiis" element={<MnuExchangeRateIIS />} /> {/* 202608 31 */}
+                <Route path="employeeiis" element={<MnuEmployeeIIS />} />      {/* 202608 27 */}
+                <Route path="employeekpidashboardiis" element={<MnuEmployeeKPIDashboardIIS />} />  {/* 202609 02 */}      
+                
+                <Route path="employeekpireport" element={<MnuEmployeeKPIReport />} />  {/* 202609 11 */}   
+                
 
                 <Route path="mnuprogtypehover" element={<MnuProgTypeHover />} />
                 <Route path="mnuprogdtldb" element={<MnuPersonalProgDtlDB />} /> 
@@ -160,7 +194,7 @@ const Menu = () => {
                 <Route path="usermode" element={<UserMode />} />
 
 
-                <Route path="about" element={<MnuInfoAbout />} />
+                
 
 
                 {/* REB keep as reference START */}
@@ -208,6 +242,10 @@ const Menu = () => {
         
         </Routes>
       </div>
+
+        {/* AI Assistant stays available on every Menu page */}
+        {/* <AIAgent /> */}
+
     </div>
   );
 };

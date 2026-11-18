@@ -45,7 +45,7 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({
 
     const fetchCandles = async () => {
       const res = await axios.get(
-        `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=150`
+        `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=100`
       );
 
       const data: CandlestickDataPoint[] = res.data.map((c: any) => ({
@@ -66,49 +66,57 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({
       if (!chartRef.current && canvasRef.current) {
         chartRef.current = new Chart(canvasRef.current, {
           type: "candlestick",
+
           data: {
             datasets: [
               {
                 label: `${symbol} Trend`,
                 data,
-
-                // FIX Color Err
-                // Error: chartjs-chart-financial (for Chart.js v4) the candlestick dataset type 
-                // //     does NOT have a color property in its TypeScript definition.
-                // color: {
-                //   up: "#4bffb5", 
-                //   down: "#ff4976",
-                //   unchanged: "#999",
-                // },
-
-                // FIX Color Soln
-                // Soln:  In Chart.js 4.5.1, financial charts, Instead of color, use:
-                //        - borderColor
-                //        - backgroundColor
-
                 borderColor: (ctx) => getCandleColor(ctx.raw as CandlestickDataPoint),
-                backgroundColor: (ctx) => getCandleColor(ctx.raw as CandlestickDataPoint),
-       
+                backgroundColor: (ctx) => getCandleColor(ctx.raw as CandlestickDataPoint),   
               },
             ],
           },
+
+
           options: {
-            responsive: true,
-            animation: false,
-            scales: {         
-              x: {
-                    type: "time",
-                    time: { unit: "hour" },
-                    offset: true,        // ✅ add here
-                    ticks: {             // ✅ add here
-                        maxRotation: 0,
-                        autoSkip: true,
-                        maxTicksLimit: 6,
-                    },
+              responsive: true,
+              maintainAspectRatio: false,
+              animation: false,
+
+              scales: {
+                x: {
+                  type: "time",
+                  time: {
+                    unit: "hour",
+                  },
+                  offset: true,
+                  ticks: {
+                    maxRotation: 0,
+                    autoSkip: true,
+                    maxTicksLimit: 6,
+                  },
                 },
-              y: { beginAtZero: false },
-            },
+
+                y: {
+                  beginAtZero: false,
+                },
+              },
+
+
+              plugins: {
+                legend: {
+                  display: false,
+                },
+
+                datalabels: {
+                  display: false,
+                },
+              },
+
+              
           },
+
         });
       }
       startWebSocket();
@@ -193,8 +201,10 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({
         style={{
         width: "500px",
         height: "280px",   
+        position: "relative",
         background: "none",
-        justifyContent: "left",
+       
+        
         }}>
             <div
                 style={{
@@ -220,7 +230,16 @@ const CandlestickChart: React.FC<CandlestickChartProps> = ({
                 </span>
             </div>
 
-        <canvas ref={canvasRef} />
+        <div
+              style={{
+                position: "relative",
+                width: "500px",
+                height: "240px",
+              }}
+            >
+              <canvas ref={canvasRef} />
+        </div>
+
     </div>
   )
 };

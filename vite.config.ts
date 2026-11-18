@@ -1,4 +1,4 @@
-// file:    vite.config.ts
+// file:    C:\Repos\PortfolioStaging\React\vite.config.ts
 
 
 import { defineConfig, loadEnv } from 'vite'
@@ -15,9 +15,11 @@ export default ({ mode }: { mode: string }) => {
           plugins: [['babel-plugin-react-compiler']],
         },
       }),
-    ],
-    base: env.VITE_BASE || "/portfolioreact/",   // ProdGithub  
-    // base: env.VITE_BASE || "/portfolioreactstaging/",   // StagingGithub, Devt, IIS Dist, IIS Prod 
+    ], 
+    base: env.VITE_BASE_PATH || "/",   // Cloudflare
+    // base: env.VITE_BASE || "/",   // Devt 
+    // base: env.VITE_BASE || "/portfolioreact/",   // ProdGithub   
+    // base: env.VITE_BASE || "/portfolioreactstaging/",   // StagingGithub, Devt, IIS Dist, IIS Prod  
   })
 }
 

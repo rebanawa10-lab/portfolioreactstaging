@@ -1,6 +1,7 @@
 // file:    src/components/Login.tsx
 //          REDUX 
 
+
 import React, { useState, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -22,16 +23,19 @@ interface LoginResponse {
 }
 // REDUX End
 
+log("==F: LOGIN.TSX Loaded #####  ");
 
 const Login: React.FC = () => {
-  log("========== src/components/Login.tsx Loaded ##### ");
+  log("==F: LOGIN.TSX = src/components/Login.tsx Loaded ##### ");
 
   // DEBUG MODE: Chrome clear the cache and hard start the browser if value below has been change for testing``
-  const loginType = Number(localStorage.getItem("is_GLoginType") ?? "7");
+  const loginType = Number(localStorage.getItem("is_GLoginType") ?? "2"); 
+    // Default : 0
+
     // KEEP !! LOGIN NOTE
     // const is_LoginType = Number(localStorage.getItem("is_GLoginType"));
     // is_LoginType value:
-    // "0" hide the login/password text box; Directly load main menu, login=admin@example.com, password=password
+    // "0" hide the login/password text box; Directly load main menu, login=admin@example.com, password=password, IIS ver
     // "1" show the login/password text box; blank value on login/password
     // "2" show the login/password text box; login=admin@example.com, password=password
     // "3" show the login/password text box; login=user@example.com, password=password

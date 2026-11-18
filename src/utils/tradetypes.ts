@@ -1,4 +1,7 @@
-// types.ts
+
+
+// file:    tradetypes.ts   
+
 export interface Trade {
   id: number;
   symbol: string;

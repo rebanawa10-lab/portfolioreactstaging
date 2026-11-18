@@ -6,12 +6,8 @@ import axios from "axios";
 import { log } from "../../src/config/debug";
 
 // DEBUG: environment
-// const NODE_API = import.meta.env.VITE_NODE_API;
 const FAST_API = import.meta.env.VITE_FASTAPI;
-// const NODEJS_API = import.meta.env.VITE_NODEJS_API;
 
-// log("Node API:", NODE_API);
-// log("NodeJS API:", NODEJS_API);
 log("========== src/api/axiosClient, FastAPI: ##### ", FAST_API);
 
 export const nodeApi = axios.create({
@@ -52,4 +48,4 @@ fastApi.interceptors.request.use((config) => {
   return config;
 });
 
-
+// -- EOF
