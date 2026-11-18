@@ -18,6 +18,7 @@
 # REB files
 # Ignore directories starting with web
 web*/
+playwright*/
 
 # dependencies
 node_modules/
