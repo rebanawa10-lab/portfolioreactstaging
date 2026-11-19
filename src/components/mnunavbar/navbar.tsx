@@ -225,7 +225,7 @@ const App: React.FC = () => {
                     </li>
                  
                     <li className="MnuRowMargin" >                                  
-                        <Link to="/exchangeratetoday" onClick={() => setIsOpen(false)} className="menuLink">Dashboard Exchange Rate</Link>         {/* 2026008 27 */}      
+                        <Link to="/exchangeratetoday" onClick={() => setIsOpen(false)} className="menuLink">Dashboard Exchange Rate $</Link>         {/* 2026008 27 */}      
                     </li>
 
                     <li className="MnuRowMargin" >                                  
